@@ -1,0 +1,18 @@
+#weatherIco {
+	font-size: 124px;
+	display: block;
+	margin: 0 auto;
+	padding: 0 0 0 12px;
+}
+
+#currentTemp {
+	font-size: 96px;
+	font-weight: 900;
+	padding: 0;
+	margin: 0;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}

@@ -1,0 +1,12 @@
+#weatherApp {
+	width: 480px;
+	min-width: 480px;
+	margin: 20px auto;
+	padding: 16px;
+	background-color: #ffff40;
+	font-family: "Comfortaa", cursive;
+}
+
+.hide {
+	display: none;
+}
