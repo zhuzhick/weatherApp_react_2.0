@@ -7,7 +7,7 @@ export default function Developer() {
 			<div className="col-md-12">
 				<hr className="hide" />
 				<h5 className="developer">
-					<a href="https://github.com/zhuzhick/weather_app_2.0">
+					<a href="https://github.com/zhuzhick/weatherApp_react">
 						Open-source code
 					</a>
 					by A.Holtseva
