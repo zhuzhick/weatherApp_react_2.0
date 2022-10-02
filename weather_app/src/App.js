@@ -47,6 +47,19 @@ export default function App() {
 		axios.get(urlWeather).then(showForecast);
 	}
 
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showForecastByPosition);
+		} else {
+			setCityResult("Geolocation is not supported by this browser.");
+		}
+	}
+
+	function showForecastByPosition(position) {
+		let urlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiWeather}&units=metric`;
+		axios.get(urlWeather).then(showForecast);
+	}
+
 	function upperLetter(word) {
 		return word.charAt(0).toUpperCase() + word.slice(1);
 	}
@@ -97,6 +110,7 @@ export default function App() {
 		<div className="container colorAppBg" id="weatherApp">
 			<CurrentTime />
 			<SearchForm
+				getLocation={getLocation}
 				citySearch={citySearch}
 				inputSearch={inputSearch}
 				city={cityResult}

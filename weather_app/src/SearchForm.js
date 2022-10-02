@@ -7,7 +7,11 @@ export default function SearchForm(props) {
 	return (
 		<div id="searchSection" className="row">
 			<div className="col-md-2 btnLocation">
-				<button id="btnLocation" className="btn">
+				<button
+					id="btnLocation"
+					className="btn"
+					onClick={props.getLocation}
+				>
 					<i className="fa-solid fa-location-dot"></i>
 				</button>
 			</div>
