@@ -7,14 +7,11 @@ export default function CurrentWeatherData(props) {
 	return (
 		<div className="row">
 			<div className="col-md-6">
-				<p className="currentWeatherData currentWind">
-					Wind <span id="currentWindData">{props.wind}km/h</span>
-				</p>
+				<p className="currentWeatherData currentWind">{props.wind}</p>
 			</div>
 			<div className="col-md-6">
 				<p className="currentWeatherData currentHumidity">
-					Humidity{" "}
-					<span id="currentHumidityData">{props.humidity}%</span>
+					{props.humidity}
 				</p>
 			</div>
 		</div>

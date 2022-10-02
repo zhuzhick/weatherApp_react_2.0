@@ -5,7 +5,7 @@ import "./Developer.css";
 
 export default function Developer() {
 	return (
-		<div className="row">
+		<footer className="row">
 			<div className="col-md-12">
 				<hr className="hide" />
 				<h5 className="developer">
@@ -15,6 +15,6 @@ export default function Developer() {
 					by A.Holtseva
 				</h5>
 			</div>
-		</div>
+		</footer>
 	);
 }
