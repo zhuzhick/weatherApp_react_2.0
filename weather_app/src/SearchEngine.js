@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import CurrentCity from "./CurrentCity";
 
-export default function Search(props) {
+export default function Search() {
 	let [city, setResult] = useState("");
 	let [temp, setTemp] = useState(null);
 	let [hum, setHum] = useState(null);
@@ -27,14 +26,4 @@ export default function Search(props) {
 		event.preventDefault();
 		axios.get(urlWeather).then(showForecast);
 	}
-
-	return (
-		<form id="weatherForm" onSubmit={searchResult}>
-			<div className="searchField">
-				<input type="search" onChange={citySearch} value={city} />
-				<input type="submit" value="Search" />
-			</div>
-			<CurrentCity city={city} />
-		</form>
-	);
 }
