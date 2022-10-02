@@ -1,4 +1,6 @@
 import React from "react";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./CurrentCity.css";
 
 export default function CurrentCity(props) {
@@ -35,7 +37,7 @@ export default function CurrentCity(props) {
 		<div className="row">
 			<div className="col-md-12">
 				<div className="cityData">
-					<h1 id="userCity">{props.cityResult}</h1>
+					<h1 id="userCity">{props.city}</h1>
 					<p id="currentDay">{currentDay}</p>
 					<p id="currentDate">
 						{currentMonth} {currentDate}, {currentYear}
