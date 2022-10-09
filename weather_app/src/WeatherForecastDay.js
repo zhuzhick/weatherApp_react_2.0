@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import "./WeatherForecastDay.css";
 
 export default function WeatherForecastDay(props) {
-	console.log(props);
-
 	function formatDay(timestamp) {
 		let date = new Date(timestamp * 1000);
 		let day = date.getDay();
@@ -47,10 +45,21 @@ export default function WeatherForecastDay(props) {
 		};
 
 		if (Object.keys(descVocablury).includes(desc)) {
-			let icoClass = descVocablury[desc].classIco;
-			return icoClass;
+			let weekDayIco = document.querySelector("#weekDayIco");
+			weekDayIco.removeAttribute("className");
+			weekDayIco.classList.add("fa-solid");
+			weekDayIco.classList.add("fa-sun");
 		}
 	}
+
+	const icoElem = useRef(null);
+
+	useEffect(() => {
+		setTimeout(() => {
+			beautifyWeek(props.data.weather[0].main);
+		}, 1000);
+		return () => {};
+	});
 
 	return (
 		<div className="row dayForecastOutput">
@@ -76,7 +85,7 @@ export default function WeatherForecastDay(props) {
 				</p>
 			</div>
 			<div className="col-md-3 dayIco">
-				<i className="fa-solid "></i>
+				<i id="weekDayIco" className="fa-solid"></i>
 			</div>
 		</div>
 	);
