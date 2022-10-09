@@ -51,9 +51,6 @@ export default function WeatherForecastDay(props) {
 			weekDayIco.classList.add("fa-sun");
 		}
 	}
-
-	const icoElem = useRef(null);
-
 	useEffect(() => {
 		setTimeout(() => {
 			beautifyWeek(props.data.weather[0].main);

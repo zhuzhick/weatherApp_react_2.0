@@ -8,11 +8,9 @@ import CurrentForecast from "./CurrentForecast";
 import CurrentWeatherDesc from "./CurrentWeatherDesc";
 import CurrentWeatherData from "./CurrentWeatherData";
 import WeatherForecast from "./WeatherForecast";
-/*import WeatherForecastDay from "./WeatherForecastDay";*/
 import Developer from "./Developer";
 
 import "./App.css";
-import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function Weather(props) {
 	const [weatherData, setWeatherData] = useState({ ready: false });
@@ -22,7 +20,6 @@ export default function Weather(props) {
 	let urlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiWeather}&units=metric`;
 
 	function showForecast(response) {
-		console.log(response);
 		setWeatherData({
 			ready: true,
 			coord: response.data.coord,
