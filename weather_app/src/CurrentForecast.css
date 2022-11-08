@@ -1,12 +1,10 @@
-#weatherIco {
-	font-size: 124px;
+.weatherIco canvas {
 	display: block;
 	margin: 0 auto;
-	padding: 0 0 0 12px;
 }
 
 #currentTemp {
-	font-size: 88px;
+	font-size: 96px;
 	font-weight: 900;
 	padding: 0;
 	margin: 0;

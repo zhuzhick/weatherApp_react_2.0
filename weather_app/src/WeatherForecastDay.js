@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-
+import WeatherIco from "./WeatherIco";
 import "./WeatherForecastDay.css";
 
 export default function WeatherForecastDay(props) {
@@ -18,45 +18,6 @@ export default function WeatherForecastDay(props) {
 
 		return days[day];
 	}
-
-	function beautifyWeek(desc) {
-		let descVocablury = {
-			Clear: {
-				classIco: "fa-sun",
-			},
-			Clouds: {
-				classIco: "fa-cloud",
-			},
-			Drizzle: {
-				classIco: "fa-cloud-sun-rain",
-			},
-			Thunderstorm: {
-				classIco: "fa-cloud-bolt",
-			},
-			Rain: {
-				classIco: "fa-cloud-sun-rain",
-			},
-			Snow: {
-				classIco: "fa-snowflake",
-			},
-			Mist: {
-				classIco: "fa-smog",
-			},
-		};
-
-		if (Object.keys(descVocablury).includes(desc)) {
-			let weekDayIco = document.querySelector("#weekDayIco");
-			weekDayIco.removeAttribute("className");
-			weekDayIco.classList.add("fa-solid");
-			weekDayIco.classList.add("fa-sun");
-		}
-	}
-	useEffect(() => {
-		setTimeout(() => {
-			beautifyWeek(props.data.weather[0].main);
-		}, 1000);
-		return () => {};
-	});
 
 	return (
 		<div className="row dayForecastOutput">
@@ -82,7 +43,7 @@ export default function WeatherForecastDay(props) {
 				</p>
 			</div>
 			<div className="col-md-3 dayIco">
-				<i id="weekDayIco" className="fa-solid"></i>
+				<WeatherIco code={props.data.weather[0].icon} size={36} />
 			</div>
 		</div>
 	);

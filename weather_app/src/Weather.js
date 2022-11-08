@@ -29,9 +29,8 @@ export default function Weather(props) {
 			desc: response.data.weather[0].description,
 			wind: response.data.wind.speed,
 			city: response.data.name,
-			ico: response.data.weather[0].main.toLowerCase(),
+			ico: response.data.weather[0].icon,
 		});
-		beautifyDay(weatherData.ico);
 		setCity("");
 	}
 
@@ -65,48 +64,6 @@ export default function Weather(props) {
 		return word.charAt(0).toUpperCase() + word.slice(1);
 	}
 
-	function beautifyDay(desc) {
-		let descVocablury = {
-			clear: {
-				classIco: "fa-sun",
-				bgcColor: "#ffff40",
-			},
-			clouds: {
-				classIco: "fa-cloud",
-				bgcColor: "#BA55D3",
-			},
-			drizzle: {
-				classIco: "fa-cloud-sun-rain",
-				bgcColor: "#87CEFA",
-			},
-			thunderstorm: {
-				classIco: "fa-cloud-bolt",
-				bgcColor: "#7FFFD4",
-			},
-			rain: {
-				classIco: "fa-cloud-sun-rain",
-				bgcColor: "#AFEEEE",
-			},
-			snow: {
-				classIco: "fa-snowflake",
-				bgcColor: "#F0F8FF",
-			},
-			mist: {
-				classIco: "fa-smog",
-				bgcColor: "#B0C4DE",
-			},
-		};
-
-		if (Object.keys(descVocablury).includes(desc)) {
-			let weatherApp = document.querySelector("#weatherApp");
-			let weatherIco = document.querySelector("#weatherIco");
-			weatherIco.removeAttribute("class");
-			weatherApp.style = `background-color: ${descVocablury[desc].bgcColor}`;
-			weatherIco.classList.add("fa-solid");
-			weatherIco.classList.add(descVocablury[desc].classIco);
-		}
-	}
-
 	if (weatherData.ready) {
 		return (
 			<div className="container colorAppBg" id="weatherApp">
@@ -119,7 +76,10 @@ export default function Weather(props) {
 					searchResult={searchResult}
 				/>
 				<CurrentCity city={weatherData.city} />
-				<CurrentForecast temp={Math.round(weatherData.temp)} />
+				<CurrentForecast
+					temp={Math.round(weatherData.temp)}
+					ico={weatherData.ico}
+				/>
 				<CurrentWeatherDesc desc={upperLetter(weatherData.desc)} />
 				<CurrentWeatherData
 					wind={Math.round(weatherData.wind)}
